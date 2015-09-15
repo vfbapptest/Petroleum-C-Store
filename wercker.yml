@@ -23,6 +23,14 @@ build:
         code: |            
             tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
             ls -lart
-            sudo apt-get update
-            sudo apt-get install python-software-properties curl wget -y
-            sudo apt-get update
+deploy:
+    steps:
+        - github-create-release:
+            token: $git_token
+            tag: v1.0
+            title: Application_v1.0.0
+            draft: true
+        - github-upload-asset:
+            token: $git_token
+            file: Petroleum-C-Store.jar
+            filename: app-v1.0.0.jar
