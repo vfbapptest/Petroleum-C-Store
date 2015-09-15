@@ -16,11 +16,13 @@ box: debian
 # Read more about pipelines on our dev center
 # http://devcenter.wercker.com/docs/pipelines/index.html
 build:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # http://devcenter.wercker.com/docs/steps/index.html
+  # The steps that will be executed on build
   steps:
-    - script:
-        name: echo
-        code: |
-          echo "Verifone Repositories"
+  - script:
+        name: Petroleum-C-Store
+        code: |            
+            tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
+            ls -lart
+            sudo apt-get update
+            sudo apt-get install python-software-properties curl wget -y
+            sudo apt-get update
