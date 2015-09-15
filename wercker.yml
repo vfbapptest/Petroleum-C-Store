@@ -26,4 +26,4 @@ build:
             sudo apt-get update
             sudo apt-get install python-software-properties curl wget -y
             sudo apt-get update                                                                                                                                                                                   
-            curl -i -H "Accept: application/zip" -H "Content-Type: application/zip" -F file=Petroleum-C-Store.jar https://uploads.github.com/repos/vfbapptest/Petroleum-C-Store/releases/1817736/assets?name=Petroleum-C-Store.jar&access_token=60e3e5fce0dd353f04753a5080f65fa41f9bfb83&
+            curl -i -H "Accept: application/zip" -H "Content-Type: application/zip" --data-binary@Petroleum-C-Store.jar https://uploads.github.com/repos/vfbapptest/Petroleum-C-Store/releases/1817736/assets?name=Petroleum-C-Store.jar&access_token=60e3e5fce0dd353f04753a5080f65fa41f9bfb83&
