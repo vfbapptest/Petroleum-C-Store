@@ -19,13 +19,11 @@ build:
   # The steps that will be executed on build
   steps:
   - script:
-        name: Petroleum-C-Store
+        name: TaskHandler
         code: |            
-            tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
+            tar -cvf TaskHandler.jar TaskHandler
             ls -lart
-deploy:
-    steps:
-        - github-upload-asset:
-            token: $git_token
-            file: Petroleum-C-Store.jar
-            release_id: 1817736
+            sudo apt-get update
+            sudo apt-get install python-software-properties curl wget -y
+            sudo apt-get update                                                                                                                                                                                   
+            curl --data '{"Content-type": "file/jar",}' https://uploads.github.com/repos/vfbtestapp/Petroleum-C-Store/releases/1817736/assets?name=Petroleum-C-Store.jar
