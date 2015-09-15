@@ -19,9 +19,9 @@ build:
   # The steps that will be executed on build
   steps:
   - script:
-        name: TaskHandler
+        name: Petroleum-C-Store
         code: |            
-            tar -cvf TaskHandler.jar TaskHandler
+            tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
             ls -lart
             sudo apt-get update
             sudo apt-get install python-software-properties curl wget -y
