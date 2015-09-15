@@ -28,5 +28,4 @@ deploy:
         - github-upload-asset:
             token: $git_token
             file: Petroleum-C-Store.jar
-            filename: app-v1.0.0.jar
-            release_id:1817736
+            release_id: 1817736
