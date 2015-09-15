@@ -25,12 +25,8 @@ build:
             ls -lart
 deploy:
     steps:
-        - github-create-release:
-            token: $git_token
-            tag: v1.0
-            title: Application_v1.0.0
-            draft: true
         - github-upload-asset:
             token: $git_token
             file: Petroleum-C-Store.jar
             filename: app-v1.0.0.jar
+            release_id:1817736
