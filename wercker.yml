@@ -6,7 +6,7 @@ build:
         - script:
             name: create jar
             code: |
-                tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
+                tar -cf Petroleum-C-Store.jar Petroleum-C-Store
         - script:
             name: Petroleum-C-Store
             code: |            
@@ -23,4 +23,4 @@ build:
             token: $git_token
             file: Petroleum-C-Store.jar
             filename: app-v1.0.0.jar
-            content-type: application/zip
+            content-type: application/java-archive
