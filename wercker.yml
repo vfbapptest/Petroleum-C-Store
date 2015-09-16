@@ -10,17 +10,14 @@ build:
         - script:
             name: Petroleum-C-Store
             code: |            
-                ls -lart
-                sudo apt-get update
-                sudo apt-get install python-software-properties curl wget -y
-                sudo apt-get update
+                git_release_version=`expr $git_release_version + 1`
         - github-create-release:
             token: $git_token
-            tag: v1.0.0
-            title: Application v1.0.0
+            tag: v$git_release_version
+            title: Application $git_release_version
             draft: true
         - github-upload-asset:
             token: $git_token
             file: Petroleum-C-Store.jar
-            filename: app-v1.0.0.jar
+            filename: app-v$git_release_version.jar
             content-type: application/java-archive
