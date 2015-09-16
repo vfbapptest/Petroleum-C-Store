@@ -14,8 +14,6 @@ build:
                 sudo apt-get update
                 sudo apt-get install python-software-properties curl wget -y
                 sudo apt-get update
-deploy:
-    steps:
         - github-create-release:
             token: $git_token
             tag: v1.0.0
