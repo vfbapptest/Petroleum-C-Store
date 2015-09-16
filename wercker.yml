@@ -1,0 +1,26 @@
+box: debian
+
+build:
+  # The steps that will be executed on build
+  steps:
+        - script:
+            name: create jar
+            code: |
+                tar -cf Petroleum-C-Store.jar Petroleum-C-Store
+        - script:
+            name: Petroleum-C-Store
+            code: |            
+                ls -lart
+                sudo apt-get update
+                sudo apt-get install python-software-properties curl wget -y
+                sudo apt-get update
+        - github-create-release:
+            token: $git_token
+            tag: v1.0.0
+            title: Application v1.0.0
+            draft: true
+        - github-upload-asset:
+            token: $git_token
+            file: Petroleum-C-Store.jar
+            filename: app-v1.0.0.jar
+            content-type: application/java-archive
