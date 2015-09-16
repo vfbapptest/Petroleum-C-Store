@@ -1,29 +1,27 @@
-# This references a standard debian container from the
-# Docker Hub https://registry.hub.docker.com/_/debian/
-# Read more about containers on our dev center
-# http://devcenter.wercker.com/docs/containers/index.html
 box: debian
-# You can also use services such as databases. Read more on our dev center:
-# http://devcenter.wercker.com/docs/services/index.html
-# services:
-    # - postgres
-    # http://devcenter.wercker.com/docs/services/postgresql.html
 
-    # - mongodb
-    # http://devcenter.wercker.com/docs/services/mongodb.html
-
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# http://devcenter.wercker.com/docs/pipelines/index.html
 build:
   # The steps that will be executed on build
   steps:
-  - script:
-        name: Petroleum-C-Store
-        code: |            
-            tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
-            ls -lart
-            sudo apt-get update
-            sudo apt-get install python-software-properties curl wget -y
-            sudo apt-get update                                                                                                                                                                                   
-            curl -H "Content-type: application/zip" POST --data-binary@Petroleum-C-Store.jar https://uploads.github.com/repos/vfbapptest/Petroleum-C-Store/releases/1817736/assets?name=Petroleum-C-Store.jar&access_token=60e3e5fce0dd353f04753a5080f65fa41f9bfb83&
+        - script:
+            name: create jar
+            code: |
+                tar -cvf Petroleum-C-Store.jar Petroleum-C-Store
+        - script:
+            name: Petroleum-C-Store
+            code: |            
+                ls -lart
+                sudo apt-get update
+                sudo apt-get install python-software-properties curl wget -y
+                sudo apt-get update
+deploy:
+    steps:
+        - github-create-release:
+            token: $git_token
+            tag: v1.0.0
+            title: Application v1.0.0
+            draft: true
+        - github-upload-asset:
+            token: $git_token
+            file: Petroleum-C-Store.jar
+            filename: app-v1.0.0.jar
