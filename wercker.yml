@@ -9,8 +9,13 @@ build:
                 tar -cf Petroleum-C-Store.jar Petroleum-C-Store
         - script:
             name: Petroleum-C-Store
-            code: |            
-                git_release_version=`expr $git_release_version + 1`
+            code: |
+              ls -lart
+              sudo apt-get update
+              sudo apt-get install python-software-properties curl wget -y
+              sudo apt-get update
+              git_release_version=`expr $git_release_version + 1`
+              export git_release_version=$git_release_version
         - github-create-release:
             token: $git_token
             tag: v$git_release_version
