@@ -18,11 +18,11 @@ build:
               
         - github-create-release:
             token: $git_token
-            tag: v$git_release_version
-            title: Application $git_release_version
+            tag: v$WERCKER_STEP_ROOT
+            title: Application $WERCKER_STEP_ROOT
             draft: true
         - github-upload-asset:
             token: $git_token
             file: Petroleum-C-Store.jar
-            filename: app-v$git_release_version.jar
+            filename: app-v$WERCKER_STEP_ROOT.jar
             content-type: application/java-archive
