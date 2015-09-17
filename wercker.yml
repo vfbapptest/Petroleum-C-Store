@@ -14,8 +14,8 @@ build:
               sudo apt-get update
               sudo apt-get install python-software-properties curl wget -y
               sudo apt-get update
-              git_release_version=`expr $git_release_version + 1`
-              export git_release_version=$git_release_version
+              export git_release_version=`expr $git_release_version + 1`
+              
         - github-create-release:
             token: $git_token
             tag: v$git_release_version
