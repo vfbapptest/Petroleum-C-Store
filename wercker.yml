@@ -20,7 +20,7 @@ build:
             token: $git_token
             tag: v$git_release_version
             title: Application $git_release_version
-            draft: true
+            draft: false
         - github-upload-asset:
             token: $git_token
             file: Petroleum-C-Store.jar
